@@ -1,0 +1,34 @@
+.pagination {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 15px;
+    margin-block: 2rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        height: 2.5rem;
+        width: 2.5rem;
+        color: var(--text-muted);
+        border-radius: 3px;
+        transition: all 0.2s;
+    &:hover{
+        background-color: var(--background-light);
+        color: var(--background-dark-2);
+    }
+    &.isActive{
+        background-color: var(--primary-color);
+        color: var(--text-primary);
+    }
+    }
+
+    
+
+    svg {
+        height: 14px;
+        width: 14px;
+    }
+}

@@ -1,0 +1,13 @@
+/*Pie de pagina*/
+
+hr{
+border: none;
+height: 1px;
+background-color: #223341;
+}
+footer{
+background-color: var(--background-dark);
+padding: 20px;
+text-align: center;
+color: var(--text-muted);
+}

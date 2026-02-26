@@ -1,0 +1,81 @@
+
+body {
+    background-color: var(--background-dark);
+}
+
+.sectionJobs{
+     margin: 0px 400px;
+}
+
+
+/*Resultado de Busqueda*/
+
+
+.jobListings{
+    padding: 10px 0px;
+    margin-bottom: 200px;
+}
+
+.resultados {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 20px;
+    border: 0.5px solid var(--background-dark-2);
+}
+
+.nombrePuestoTrabajo {
+    margin-bottom: 10px;
+}
+
+.divBtn {
+    grid-column: 2;
+    text-align: end;
+}
+
+
+.mainEmpleo {
+    margin: 0px 400px;
+    background-color: #121B26;
+    padding: 20px;
+}
+h2{
+    font-size: 25px;
+}
+.job{
+    margin-left: 300px;
+    padding: 30px;
+}
+.trabajoEspecializacion{
+color: var(--background-light);
+font-weight: 500;
+}
+
+.jobRole{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+.jobSpect{
+    margin-bottom: 20px;
+    h2{
+      color: var(--secondary-color);  
+    }
+}
+.textPadding{
+    padding: 20px 0px;
+    font-weight: 700;
+}
+.text16px{
+    font-size: 16px;
+}
+li{
+    display: flex;
+    gap: 10px;
+    padding: 10px 0px;
+    color: var(--text-muted);
+}
+.infoText{
+    margin-bottom: 200px;
+}
+
