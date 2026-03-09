@@ -3,7 +3,8 @@ import Footer from './components/footer.jsx'
 import { Header } from './components/header.jsx'
 import { HomePage } from './pages/Home.jsx'
 import { SearchPage } from './pages/Search.jsx'
-import { Route } from './components/Route.jsx'
+import { NotFoundPage } from './pages/404.jsx'
+import { Routes, Route } from 'react-router' 
 import { Job } from './pages/Job.jsx'
 
 function App() {
@@ -11,9 +12,12 @@ function App() {
     return (
         <>
             <Header />
-            <Route path="/" component={HomePage}/>
-            <Route path="/search" component={SearchPage}/>
-            <Route path="/empleo" component={Job}/>
+            <Routes>
+            <Route path="/" element={<HomePage></HomePage>}/>
+            <Route path="/search" element={<SearchPage></SearchPage>}/>
+            <Route path="/empleo" element={<Job></Job>}/>
+            <Route path="*" element={<NotFoundPage></NotFoundPage>}/>
+            </Routes>
             <Footer />
 
         </>
