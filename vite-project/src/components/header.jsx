@@ -14,10 +14,10 @@ return <> <header className="header">
         </div>
 
         <nav className="nav">
-            <Link href="/search" >Buscar</Link>
-            <Link href="/empleo" >Empleos</Link>
-            <Link href="">Empresas</Link>
-            <Link href="">Salarios</Link>
+            <Link href="/search" className="nav-a" >Buscar</Link>
+            <Link href="/empleo" className="nav-a">Empleos</Link>
+            <Link href="" className="nav-a">Empresas</Link>
+            <Link href="" className="nav-a">Salarios</Link>
         </nav>
 
         <div className="container-sesion-derecha">

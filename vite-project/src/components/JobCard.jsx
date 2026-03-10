@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from '../styles/EstiloEmpleos.module.css'
+import { Link } from "./Link";
 
 export function JobCard({ job }) {
 
@@ -15,8 +16,8 @@ export function JobCard({ job }) {
             data-nivel={job?.nivel}
             data-technology={job?.technology}
         >
-            <div>
-                <h3>{job.titulo}</h3>
+            <div className={styles.info}>
+                <Link href={`/jobs/${job.id}`}>{job.titulo}</Link>
                 <small className={styles.nombrePuestoTrabajo}>{job.empresa} | {job.ubicacion}</small>
                 <p> {job.descripcion}</p>
             </div>

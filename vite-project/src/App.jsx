@@ -6,6 +6,7 @@ import { SearchPage } from './pages/Search.jsx'
 import { NotFoundPage } from './pages/404.jsx'
 import { Routes, Route } from 'react-router' 
 import { Job } from './pages/Job.jsx'
+import { JobDetail } from './pages/Detail.jsx'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
             <Routes>
             <Route path="/" element={<HomePage></HomePage>}/>
             <Route path="/search" element={<SearchPage></SearchPage>}/>
+            <Route path="/jobs/:jobId" element={<JobDetail></JobDetail>}/>
             <Route path="/empleo" element={<Job></Job>}/>
             <Route path="*" element={<NotFoundPage></NotFoundPage>}/>
             </Routes>
