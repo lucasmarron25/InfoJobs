@@ -73,14 +73,16 @@ export const JobDetail = () => {
           Empleos
         </Link>
         <span className={styles.breadcrumbSeparator}>/</span>
-        <span className={styles.breadcrumbTitle}>{job.title}</span>
+        <span className={styles.breadcrumbTitle}>{job.titulo}</span>
       </nav>
 
       <header className={styles.header}>
-        <h1 className={styles.title}>{job.title}</h1>
+        <div className={styles.containerTitulo}>
+        <h1 className={styles.title}>{job.titulo}</h1>
         <div className={styles.meta}>
-          <p className={styles.company}>{job.company}</p>
-          <p className={styles.location}>{job.location}</p>
+          <p className={styles.company}>{job.empresa} - </p>
+          <p className={styles.location}>- {job.ubicacion}</p>
+        </div>
         </div>
         <button className={styles.applyButton}>Aplicar a esta oferta</button>
       </header>

@@ -26,6 +26,7 @@ export function JobCard({ job }) {
                 <button className={`btn btn-aplicar ${botonAplicado}`} onClick={handleClick} disabled={aplicado}>
                     {aplicado ? 'Aplicado' : 'Aplicar'}
                 </button>
+                <Link href={`/jobs/${job.id}`} style={{ textDecoration: "underline"}}>ver detalles</Link>
             </div>
         </article>
     </>
