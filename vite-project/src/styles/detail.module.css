@@ -1,10 +1,14 @@
-/* pages/JobDetail.module.css */
+
 .container {
   padding-block: 2rem;
   max-width: 64rem;
   margin: 0 auto;
+  background-color: #121B26;
+  padding: 20px;
+  margin-bottom: 2rem;
 }
-.containerTitulo{
+
+.containerTitulo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,7 +48,8 @@
 .breadcrumb {
   font-size: 0.875rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin: 2rem;
+  text-align: left;
 }
 
 .breadcrumbButton {
@@ -119,9 +124,7 @@
   }
 }
 
-.section {
-  margin-bottom: 3rem;
-}
+
 
 .sectionTitle {
   font-size: 1.5rem;
@@ -132,10 +135,12 @@
 
 .sectionContent {
   color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
-.notFound{
-    text-align: center;
-    padding: 20px;
+
+.notFound {
+  text-align: center;
+  padding: 20px;
 }
 
 .prose ul {
@@ -153,6 +158,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #3b82f6; /* azul */
+  color: #3b82f6;
+  /* azul */
   font-weight: bold;
 }

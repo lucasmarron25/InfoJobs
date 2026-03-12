@@ -2,7 +2,6 @@ import '../styles/estilosHome.css'
 import { useRouter } from '../hooks/useRouter.jsx'
 
 
-
 export function HomePage() {
 
    const { navigateTo } = useRouter()

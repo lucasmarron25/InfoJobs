@@ -1,24 +1,26 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router'
-import styles from '../styles/detail.module.css'
 import { Link } from '../components/Link'
+import styles from '../styles/detail.module.css'
 import snarkdown from 'snarkdown'
 
- function JobSection ({ title, content }) {
+function JobSection({ title, content }) {
   const html = snarkdown(content)
 
   return (
+
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <div className={`${styles.sectionContent} ${styles.prose}`}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </section>
+
   )
 }
 
 
-export const JobDetail = () => {
+export function JobDetail() {
   const { jobId } = useParams()
   const navigate = useNavigate()
 
@@ -26,7 +28,7 @@ export const JobDetail = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-    useEffect(() => {
+  useEffect(() => {
     fetch(`https://jscamp-api.vercel.app/api/jobs/${jobId}`)
       .then(response => {
         if (!response.ok) {
@@ -67,7 +69,7 @@ export const JobDetail = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <nav className={styles.breadcrumb}>
         <Link href="/search" className={styles.breadcrumbLink}>
           Empleos
@@ -75,25 +77,28 @@ export const JobDetail = () => {
         <span className={styles.breadcrumbSeparator}>/</span>
         <span className={styles.breadcrumbTitle}>{job.titulo}</span>
       </nav>
+      
+      <div className={styles.container}>
 
-      <header className={styles.header}>
-        <div className={styles.containerTitulo}>
-        <h1 className={styles.title}>{job.titulo}</h1>
-        <div className={styles.meta}>
-          <p className={styles.company}>{job.empresa} - </p>
-          <p className={styles.location}>- {job.ubicacion}</p>
-        </div>
-        </div>
-        <button className={styles.applyButton}>Aplicar a esta oferta</button>
-      </header>
+        <header className={styles.header}>
+          <div className={styles.containerTitulo}>
+            <h1 className={styles.title}>{job.titulo}</h1>
+            <div className={styles.meta}>
+              <p className={styles.company}>{job.empresa} - </p>
+              <p className={styles.location}>- {job.ubicacion}</p>
+            </div>
+          </div>
+          <button className={styles.applyButton}>Aplicar a esta oferta</button>
+        </header>
 
-      <JobSection title="Descripción del puesto" content={job.content.description} />
+        <JobSection title="Descripción del puesto" content={job.content.description} />
 
-      <JobSection title="Responsabilidades" content={job.content.responsibilities} />
+        <JobSection title="Responsabilidades" content={job.content.responsibilities} />
 
-      <JobSection title="Requisitos" content={job.content.requirements} />
+        <JobSection title="Requisitos" content={job.content.requirements} />
 
-      <JobSection title="Acerca de la empresa" content={job.content.about} />
+        <JobSection title="Acerca de la empresa" content={job.content.about} />
+      </div>
     </div>
   )
 }

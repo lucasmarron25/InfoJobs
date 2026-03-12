@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router'
 import '../styles/estiloHeader.css'
 import { Link } from './Link'
 
@@ -14,10 +15,10 @@ return <> <header className="header">
         </div>
 
         <nav className="nav">
-            <Link href="/search" className="nav-a" >Buscar</Link>
-            <Link href="/empleo" className="nav-a">Empleos</Link>
-            <Link href="" className="nav-a">Empresas</Link>
-            <Link href="" className="nav-a">Salarios</Link>
+            <NavLink to="/search" className={({isActive})=>isActive ? "isActive ":"navHover"} >Buscar</NavLink>
+            <NavLink to="/empleo" className={({isActive})=>isActive ? "isActive":"navHover"}>Empleos</NavLink>
+            <NavLink to="/asd" className={({isActive})=>isActive ? "isActive":"navHover"}>Empresas</NavLink>
+            <NavLink to="" className={({isActive})=>isActive ? "isActive":"navHover"}>Salarios</NavLink>
         </nav>
 
         <div className="container-sesion-derecha">

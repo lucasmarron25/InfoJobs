@@ -1,15 +1,18 @@
 
 import Footer from './components/footer.jsx'
+
+
+
 import { Header } from './components/header.jsx'
 import { HomePage } from './pages/Home.jsx'
 import { SearchPage } from './pages/Search.jsx'
 import { NotFoundPage } from './pages/404.jsx'
 import { Routes, Route } from 'react-router' 
-import { Job } from './pages/Job.jsx'
 import { JobDetail } from './pages/Detail.jsx'
 
 function App() {
 
+    
     return (
         <>
             <Header />
@@ -17,7 +20,6 @@ function App() {
             <Route path="/" element={<HomePage></HomePage>}/>
             <Route path="/search" element={<SearchPage></SearchPage>}/>
             <Route path="/jobs/:jobId" element={<JobDetail></JobDetail>}/>
-            <Route path="/empleo" element={<Job></Job>}/>
             <Route path="*" element={<NotFoundPage></NotFoundPage>}/>
             </Routes>
             <Footer />

@@ -21,14 +21,13 @@ min-height: 80px;
 }
 nav{
     text-align: center;
-}
-.nav-a{
-text-align: center;
-padding: 0 15px;
-color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: var(--text-primary);
 }
 
-.nav-a:hover{
+.navHover:hover{
    color: var(--primary-color); 
 }
 .container-sesion-derecha{
