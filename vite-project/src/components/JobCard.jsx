@@ -1,11 +1,13 @@
 import { useState } from "react";
 import styles from '../styles/EstiloEmpleos.module.css'
 import { Link } from "./Link";
+import { useFavoritesStore } from "../../store/favoritesStore";
 
 export function JobCard({ job }) {
 
     const [aplicado, setAplicado] = useState(false);
     const botonAplicado = aplicado ? 'btn-activo' : '';
+    const{toggleFavorite, isFavorite}=useFavoritesStore()
 
     function handleClick() {
         setAplicado(true);
@@ -23,10 +25,20 @@ export function JobCard({ job }) {
             </div>
 
             <div className={styles.divBtn}>
-                <button className={`btn btn-aplicar ${botonAplicado}`} onClick={handleClick} disabled={aplicado}>
+                <div>
+                    <button className={`btn btn-aplicar ${botonAplicado}`} onClick={handleClick} style={{margin:"5px 0px"}} disabled={aplicado}>
                     {aplicado ? 'Aplicado' : 'Aplicar'}
                 </button>
+             
+                   <button className={`btn `} style={{background:"none"}} onClick={()=>toggleFavorite(job.id)}>
+                    {isFavorite(job.id) ?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" /></svg>
+                    :
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>}
+                </button>
+                </div>
                 <Link href={`/jobs/${job.id}`} style={{ textDecoration: "underline"}}>ver detalles</Link>
+                
             </div>
         </article>
     </>

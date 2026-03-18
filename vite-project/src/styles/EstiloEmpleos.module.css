@@ -24,7 +24,7 @@ body {
 .resultados {
     display: grid;
     grid-template-columns: 5fr 1fr;
-    padding: 20px;
+    padding: 20px 0px 20px 20px;;
     border: 0.5px solid var(--background-dark-2);
 }
 
@@ -33,13 +33,7 @@ body {
 }
 
 .divBtn {
-    grid-column: 2;
-    text-align: end;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
+    padding: 10px 20px;
     button{
         margin-bottom: 10px;
        

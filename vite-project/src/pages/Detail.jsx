@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router'
 import { Link } from '../components/Link'
 import styles from '../styles/detail.module.css'
 import snarkdown from 'snarkdown'
+import { authStore } from '../../store/authStore'
 
 function JobSection({ title, content }) {
   const html = snarkdown(content)
@@ -19,8 +20,18 @@ function JobSection({ title, content }) {
   )
 }
 
+export function ButtonApplyJob(){
+  const {isLoggedIn} = authStore()
+
+   return <button disabled={!isLoggedIn} className={styles.applyButton}>
+            {isLoggedIn ? "Aplicar a esta oferta" : "iniciar sesion"}
+          </button>
+}
 
 export function JobDetail() {
+
+
+
   const { jobId } = useParams()
   const navigate = useNavigate()
 
@@ -88,7 +99,9 @@ export function JobDetail() {
               <p className={styles.location}>- {job.ubicacion}</p>
             </div>
           </div>
-          <button className={styles.applyButton}>Aplicar a esta oferta</button>
+
+          <ButtonApplyJob></ButtonApplyJob>
+          
         </header>
 
         <JobSection title="Descripción del puesto" content={job.content.description} />
