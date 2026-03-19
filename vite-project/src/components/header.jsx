@@ -1,15 +1,26 @@
 import { NavLink } from 'react-router'
 import '../styles/estiloHeader.css'
 import { Link } from './Link'
-import { authStore } from '../../store/authStore'
-import { useFavoritesStore } from '../../store/favoritesStore'
+import { authStore } from '../../store/authStore.jsx'
+import { useFavoritesStore } from '../../store/favoritesStore.jsx'
+
+const HeaderUserButton = () => {
+  const { isLoggedIn, login, logout } = authStore()
+  const { clearFavorites } = useFavoritesStore()
+
+  const handleLogout = () => {
+    logout()
+    clearFavorites()
+  }
+
+  return isLoggedIn
+    ? <button onClick={handleLogout}>Cerrar sesión</button>
+    : <button onClick={login}>Iniciar sesión</button>
+}
 
 export function Header() {
-
-    const {isLoggedIn,login,logout} = authStore()
-    const {countFavorites}= useFavoritesStore()
-    const numberOfFavorites = countFavorites()
-
+      const { isLoggedIn, login, logout } = authStore()
+        const { numberOfFavorites } = useFavoritesStore()
     return <>
         <header className="header">
             <div className="header-izquierda">
@@ -33,8 +44,7 @@ export function Header() {
 
             <div className="container-sesion-derecha">
                 <a href="" className="sesion-derecha-a empleo cv">Subir cv</a>
-
-                {isLoggedIn ? <button className="btn" onClick={logout}>cerrar sesion</button> : <button className="btn" onClick={login}>iniciar sesion</button>}
+                <HeaderUserButton></HeaderUserButton>
 
             </div>
 

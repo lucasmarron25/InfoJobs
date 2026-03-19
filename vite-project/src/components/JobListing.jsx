@@ -3,7 +3,7 @@ import { JobCard } from './JobCard.jsx'
 import styles from '../styles/EstiloEmpleos.module.css'
 
 export function JobListing({ jobs }) {
-
+console.log("jobs recibidos:", jobs)
     return <>
 
         <section className={styles.sectionJobs}>

@@ -33,7 +33,7 @@ export function useFilters() {
     const [jobs, setJobs] = useState([])
     const [total, setTotal] = useState(0)
     const [loading, setLoading] = useState(true)
-
+  
 
     useEffect(() => {
         async function fetchJobs() {
@@ -109,7 +109,6 @@ export function useFilters() {
 export function SearchPage() {
 
     const { totalPages, handlePageChange, handleSearch, handleTextFilter, jobs, currentPage, loading,textToFilter } = useFilters()
-
 
     return (
         <>
